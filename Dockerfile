@@ -1,11 +1,5 @@
 ARG baseimg=jupyter/scipy-notebook
 
-#power9
-#ARG baseimg=nvidia/cuda-ppc64le:9.2-devel-ubuntu18.04
-
-#intel
-#ARG baseimg=nvidia/cuda:9.0-devel-ubuntu16.04
-
 FROM $baseimg
 
 #power8
