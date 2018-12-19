@@ -14,10 +14,6 @@ ARG sample=9-2
         
 RUN curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh | bash
 
-ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia-384:/usr/lib/nvidia-390:/usr/lib/nvidia-396
-RUN cd /usr/local/cuda/samples && make -j16 -k ; exit 0
-RUN ls -l /usr/lib
-
 COPY url.txt /etc/NAE/url.txt
 COPY help.html /etc/NAE/help.html
 COPY $appdef /etc/NAE/AppDef.json
@@ -25,5 +21,3 @@ RUN wget --post-file=/etc/NAE/AppDef.json --no-verbose https://api.jarvice.com/j
 
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
-
-
